@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('content')
+    
 <main class="bg-light">
     <div class="container">
         <div class="row">
@@ -10,7 +11,9 @@
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             {{-- chiamo index dal controller --}}
-                            <p class="card-text">{{ $movie->title }}</p>
+                            @foreach ($movies as $movie)
+                                <p class="card-text">{{ $movie->title }}</p>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -19,5 +22,4 @@
     </div>
 </main>
 
-
-</html>
+@endsection

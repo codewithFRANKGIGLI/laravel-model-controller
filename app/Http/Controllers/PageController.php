@@ -10,8 +10,11 @@ class PageController extends Controller
     // funzione index per passare tutti i film dal database alla view
     public function index(){
         $movies = Movie::all();
-        dd($movies);
+        
+        $data = [
+            'movies' => $movies
+        ];
 
-        return view('home');
+        return view('home', $data);
     }
 }
