@@ -1,25 +1,24 @@
 @extends('layouts.app')
 @section('content')
-    
-<main class="bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="min-vh-100 py-5 d-flex flex-wrap gap-3 justify-content-center">
-                    {{-- single card --}}
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            {{-- chiamo index dal controller --}}
-                            @foreach ($movies as $movie)
-                                <p class="card-text">{{ $movie->title }}</p>
-                            @endforeach
+    <main class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col py-5 d-flex flex-wrap">
+                    @foreach ($movies as $movie)
+                        {{-- single card --}}
+                        <div class="card m-3" style="width: 18rem;">
+                            <div class="card-body">
+                                {{-- chiamo index dal controller --}}
+                                <h2 class="card-title fw-bold">Titolo: {{ $movie->title }}</h2>
+                                <p>Titolo originale: {{ $movie->original_title }}</p>
+                                <p>Nazione: {{ $movie->nationality }}</p>
+                                <p>Data di uscita: {{ $movie->date }}</p>
+                                <p>Voto: {{ $movie->vote }}</p>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-    </div>
-</main>
-
+    </main>
 @endsection
